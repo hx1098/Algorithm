@@ -7,6 +7,7 @@ package primer;
  * @date 2020/12/13 23:16
  * 打印32位数字的小程序.
  * 冒泡排序
+ * 选择排序 选择一个
  *
  */
 public class T_001 {
@@ -16,7 +17,7 @@ public class T_001 {
      */
     public static void main(String[] args) {
         int num = 783456348;
-        print(1);
+        print(11);
 
         System.out.println("========================");
         int[] arr = {9,3,5,2,4,6};
@@ -27,7 +28,21 @@ public class T_001 {
     }
     public static void print(int num){
         for (int i = 31; i >= 0; i--) {
-            System.out.println((num & (1 << i))==0 ? "0" : 1);
+            System.out.print((num & (1 << i))==0 ? "0" : 1);
+        }
+        System.out.println();
+    }
+
+    /**
+     * 选择排序
+     *
+     * @param arr
+     */
+    public static void selectSort(int[] arr){
+        int N = arr.length;
+        if (arr == null || N < 2){ return; }
+        for (int i = 0; i < N; i++) {
+
         }
     }
 
