@@ -1,4 +1,4 @@
-package primer;
+package primer.T_001_bubble_insert_sort;
 
 import jdk.internal.org.objectweb.asm.tree.MethodInsnNode;
 import org.junit.Test;
