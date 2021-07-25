@@ -66,6 +66,7 @@ public class T_002_binary_hash_sorttable {
         }
         return false;
     }
+    //    for test
     public static void main(String[] args) {
         int testTime = 500000;
         int maxSize = 10;
