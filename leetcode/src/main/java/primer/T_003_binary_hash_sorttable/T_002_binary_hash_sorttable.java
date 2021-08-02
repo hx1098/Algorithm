@@ -1,12 +1,14 @@
 package primer.T_003_binary_hash_sorttable;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
  * @author hx
  * @version 1.0.0
  * @createTime 2021/7/13 14:09
- * @option 二分法, 
+ * @option 二分法,
  * @description
  * @editUser hx
  * @editTime 2021/7/13 14:09
@@ -34,7 +36,7 @@ public class T_002_binary_hash_sorttable {
 //        2.如果中间值 小于 查找值, 左侧的要舍弃, 从右侧开始查找, 终止值不改变, 其实值变成 middle +1
 //        3.临界值: 左侧的数据大于等于 右侧的数据时候, 紧要停止了
         int L = 0;
-        int R = arr.length - 1;
+        int R = arr.length - 1; // 这里减一是因为数组的位置与数据的位置不一致, 要减去一才行
         while (L <= R) {
             int middle = (L + R) / 2;
             if (arr[middle] == num) {
@@ -49,6 +51,43 @@ public class T_002_binary_hash_sorttable {
     }
 
 
+    /**
+     * 查找目标数据最左侧, 不小于num的数据位置
+     *
+     * @param arr
+     * @return
+     */
+    public static int mostLeftNoNum(int[] arr, int num) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int L = 0;
+        int R = arr.length;
+        int temp = -1;
+
+        while (L <= R) {
+
+        }
+        return -1;
+    }
+
+    @Test
+    public void test1() {
+//        ThreadLocal
+        int a = 5;
+        int b = 6;
+        System.out.println((a + b) / 2);
+        int c = (a + b) / 2;
+        System.out.println(c);
+        System.out.println("================================");
+        a = 5;
+        b = 6;
+        System.out.println((a + b) / 2);
+        c = (a + b) / 2;
+        System.out.println(c);
+    }
+
+
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
@@ -57,6 +96,7 @@ public class T_002_binary_hash_sorttable {
         }
         return arr;
     }
+
     // for test
     public static boolean test(int[] sortedArr, int num) {
         for (int cur : sortedArr) {
@@ -66,6 +106,7 @@ public class T_002_binary_hash_sorttable {
         }
         return false;
     }
+
     //    for test
     public static void main(String[] args) {
         int testTime = 500000;
