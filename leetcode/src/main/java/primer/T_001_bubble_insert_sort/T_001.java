@@ -217,6 +217,10 @@ public class T_001 {
         a = a ^ b;
         System.out.println(a);
         System.out.println(b);
+
+        int c = -4;
+        System.out.println(-4 >>> 1);
+        //'00000000 00000000 00000000 00000000'
     }
 
     /**
