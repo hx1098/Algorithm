@@ -1,4 +1,4 @@
-package leetcode;
+package T04_lock01;
 
 
 import org.junit.Test;
