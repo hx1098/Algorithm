@@ -4,8 +4,6 @@ import T05_DesignMode.T01_strategy.impl.BackDoor;
 import T05_DesignMode.T01_strategy.impl.BlockEnemy;
 import T05_DesignMode.T01_strategy.impl.GivenGreenLight;
 
-import java.util.Comparator;
-
 /**
  * @author hx
  * @version 1.0.0
@@ -15,7 +13,8 @@ import java.util.Comparator;
  * @editTime 2021/9/29 15:45
  * @editDescription 赵云他来了, 她来了, 他根据诸葛亮的交代,依次拆开妙计..
  * 赵云并不知每次拆开的锦囊使用的到底是哪个策略哇, 这
- * 里其实已经将锦囊的计谋名称写出来了,只要拆出来就可以了
+ * 里其实已经将锦囊的计谋名称写出来了,只要拆出来就可以了,
+ * 另外加策略的话就直接在Context中加就可以了.
  *
  * 优点: 高内聚低耦合
  *
