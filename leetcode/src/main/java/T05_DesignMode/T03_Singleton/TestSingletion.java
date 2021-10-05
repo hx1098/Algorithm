@@ -7,7 +7,7 @@ package T05_DesignMode.T03_Singleton;
  * @description
  * @editUser hx
  * @editTime 2021/9/30 9:13
- * @editDescription 单例模式 好比一个国家里只能有一个皇帝, 一个人只能有一个girlFriend, 多了的话肯定会出问题
+ * @editDescription 单例模式 好比一个国家里只能有一个皇帝, 一个人只能有一个girlFriend, 2
  */
 public class TestSingletion {
 
