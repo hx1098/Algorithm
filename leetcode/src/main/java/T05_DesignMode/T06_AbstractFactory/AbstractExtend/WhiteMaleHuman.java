@@ -1,0 +1,20 @@
+package T05_DesignMode.T06_AbstractFactory.AbstractExtend;
+
+import T05_DesignMode.T06_AbstractFactory.AbstractImpl.AbstractWhiteHuman;
+
+/**
+ * @author hx
+ * @version 1.0.0
+ * @createTime 2021/10/6 19:54
+ * @description
+ * @editUser hx
+ * @editTime 2021/10/6 19:54
+ * @editDescription 男性白种人
+ */
+public class WhiteMaleHuman extends AbstractWhiteHuman {
+
+    @Override
+    public void sex() {
+        System.out.println("该白种人性别为女男...");
+    }
+}
