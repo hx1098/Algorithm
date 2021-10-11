@@ -36,5 +36,25 @@ gcroots 定义的 局部变量, 静态变量, 常量, jni指针 这些是根
 
 ### 3.垃圾回收模型
 
-#### 1.
+#### 1.分代模型
+
+前面六个是数据分代模型
+
+#### 2.分区模型
+
+后面四个属于分区模型
+
+![image-20211010214635624](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/jvm/20211010214635.png)
+
+
+
+分代模型与分区模型
+
+分代模型: 新生代:复制算法，老年代：标记整理，标记清除算法
+
+![image-20211010214938921](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/jvm/20211010214939.png)
+
+
+
+
 

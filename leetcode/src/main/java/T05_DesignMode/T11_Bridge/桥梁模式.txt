@@ -1,0 +1,9 @@
+star法则:
+
+status: 桥梁模式
+
+task:
+
+action:
+
+result:
