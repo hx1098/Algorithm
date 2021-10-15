@@ -11,7 +11,7 @@ import T05_DesignMode.T12_Command.Group;
  * @editTime 2021/10/13 22:28
  * @editDescription 美工组 职责:设计出一套漂亮, 简单的边界的页面
  */
-public class FaceGroup extends Group {
+public  class FaceGroup extends Group {
 
 
     /**首先你要找到美工组, 不然你谈个锤子锤子*/

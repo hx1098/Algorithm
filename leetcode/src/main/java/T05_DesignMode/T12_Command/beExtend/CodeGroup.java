@@ -12,7 +12,7 @@ import T05_DesignMode.T12_Command.Group;
  * @editDescription 代码组, 比较沉闷, 闷骚型的都是,
  *  代码组实现业务逻辑,包括数据库设计啦...
  */
-public class CodeGroup extends Group {
+public  class CodeGroup extends Group {
 
     /**客户要求代码组和我们谈谈....*/
     @Override
