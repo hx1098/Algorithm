@@ -2,8 +2,6 @@ package T05_DesignMode.T12_Command;
 
 import T05_DesignMode.T12_Command.beExtend.RequirementGroup;
 
-import javax.xml.crypto.dsig.keyinfo.PGPData;
-
 /**
  * @author hx
  * @version 1.0.0
