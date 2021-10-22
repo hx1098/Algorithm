@@ -1,7 +1,7 @@
-package T05_DesignMode.T15_Composite.impl;
+package T05_DesignMode.T15_Composite.version1.impl;
 
-import T05_DesignMode.T15_Composite.IBranch;
-import T05_DesignMode.T15_Composite.ILeaf;
+import T05_DesignMode.T15_Composite.version1.IBranch;
+import T05_DesignMode.T15_Composite.version1.ILeaf;
 
 import java.util.ArrayList;
 

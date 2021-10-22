@@ -1,4 +1,4 @@
-package T05_DesignMode.T15_Composite;
+package T05_DesignMode.T15_Composite.version1;
 
 import java.util.ArrayList;
 

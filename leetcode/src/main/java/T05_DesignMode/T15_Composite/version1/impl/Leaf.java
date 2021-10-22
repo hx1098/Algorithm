@@ -1,6 +1,6 @@
-package T05_DesignMode.T15_Composite.impl;
+package T05_DesignMode.T15_Composite.version1.impl;
 
-import T05_DesignMode.T15_Composite.ILeaf;
+import T05_DesignMode.T15_Composite.version1.ILeaf;
 
 /**
  * @author hx
