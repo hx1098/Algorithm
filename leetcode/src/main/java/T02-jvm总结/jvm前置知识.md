@@ -194,7 +194,7 @@ https://en.wikipedia.org/wiki/Tracing_garbage_collection#TRI-COLOR
 
 G1保留了老年代新生代的概念, 在回收时候, 会优先回收价值收益最大的那些region(价值即回收能获得的大小和回收所需时间的经验值大小), 谁回收的时间短, 回收的还多, 我就去那家(region)去收垃圾, 这样我回收的空间就多, stw的停顿就可以进行预测.
 
-
+​	
 
 
 
