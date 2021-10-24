@@ -194,65 +194,14 @@ https://en.wikipedia.org/wiki/Tracing_garbage_collection#TRI-COLOR
 
 G1保留了老年代新生代的概念, 在回收时候, 会优先回收价值收益最大的那些region(价值即回收能获得的大小和回收所需时间的经验值大小), 谁回收的时间短, 回收的还多, 我就去那家(region)去收垃圾, 这样我回收的空间就多, stw的停顿就可以进行预测.
 
-​	
+![image-20211023154609434](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/jvm/20211023154616.png)
 
+​	接下来看看G1垃圾回收器是如何处理漏标问题的, G1垃圾回收器使用的是 STAB(snapshot at the beginning), 接下来开始进行操作了, 坐好了, 时刻1到时刻2业务代码进行了一下操作, A新增了引用C, 删除了B到C的引用, 这个时候, 把这个引用推到了GC的堆栈, 到了时刻2之后, GC线程在堆栈找到C, 知道C被漏掉了, 我再看看有没有对象指向你呢, 原来还有一个A的引用指向了C, 所以这个C就不会被漏掉了. 可以看到, 这个过程最主要关注的是"引用的消失", 而不是引用的增加. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+感谢:
 
 https://my.oschina.net/u/3471412/blog/4740055
 
 https://www.cnblogs.com/hongdada/p/14578950.html
 
 https://blog.csdn.net/qq_39685066/article/details/107294318
-
-
-
