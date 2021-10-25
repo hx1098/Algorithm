@@ -1,4 +1,4 @@
-package T05_DesignMode.T16_Observer;
+package T05_DesignMode.T16_Observer.version1;
 
 /**
  * @author hx

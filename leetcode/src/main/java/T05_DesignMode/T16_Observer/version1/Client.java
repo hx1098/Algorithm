@@ -1,7 +1,7 @@
-package T05_DesignMode.T16_Observer;
+package T05_DesignMode.T16_Observer.version1;
 
-import T05_DesignMode.T16_Observer.impl.HanFeiZi;
-import T05_DesignMode.T16_Observer.impl.LiSi;
+import T05_DesignMode.T16_Observer.version1.impl.HanFeiZi;
+import T05_DesignMode.T16_Observer.version1.impl.LiSi;
 
 /**
  * @author hx

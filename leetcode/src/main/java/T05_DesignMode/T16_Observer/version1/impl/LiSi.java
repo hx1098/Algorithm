@@ -1,6 +1,6 @@
-package T05_DesignMode.T16_Observer.impl;
+package T05_DesignMode.T16_Observer.version1.impl;
 
-import T05_DesignMode.T16_Observer.ILiSi;
+import T05_DesignMode.T16_Observer.version1.ILiSi;
 
 /**
  * @author hx
