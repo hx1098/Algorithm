@@ -1,0 +1,9 @@
+star法则:
+
+status:
+
+task:
+
+action:
+
+result:
