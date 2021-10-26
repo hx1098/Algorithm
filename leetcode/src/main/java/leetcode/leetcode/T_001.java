@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.leetcode;
 
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
