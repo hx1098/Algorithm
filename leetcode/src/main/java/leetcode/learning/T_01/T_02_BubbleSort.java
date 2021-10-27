@@ -9,7 +9,7 @@ package leetcode.learning.T_01;
  * @editTime 2021/10/25 22:18
  * @editDescription 冒泡排序 在于找到最大值
  */
-public class T_02_Bubble {
+public class T_02_BubbleSort {
 
     //8,2,4,1,5
     //第一次排序  2,4,1,5,8  两个两个的一次进行排序,

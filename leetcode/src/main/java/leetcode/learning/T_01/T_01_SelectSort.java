@@ -11,7 +11,7 @@ import java.util.jar.JarEntry;
  * @editTime 2021/10/25 22:18
  * @editDescription 选则排序 重点在于 找到最小值
  */
-public class T_01_Select {
+public class T_01_SelectSort {
 
     //分析:
     // 1.边界问题: 如果这个数组为空, 或者 数组size 小于2, 则直接返回
