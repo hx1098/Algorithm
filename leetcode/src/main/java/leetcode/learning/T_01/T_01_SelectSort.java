@@ -9,7 +9,7 @@ import java.util.jar.JarEntry;
  * @description
  * @editUser hx
  * @editTime 2021/10/25 22:18
- * @editDescription 选则排序 重点在于 找到最小值
+ * @editDescription 选则排序 重点在于 找到最小值, 排列在第一个位置
  */
 public class T_01_SelectSort {
 
