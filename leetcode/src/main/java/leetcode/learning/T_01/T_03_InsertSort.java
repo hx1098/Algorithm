@@ -1,5 +1,7 @@
 package leetcode.learning.T_01;
 
+import java.util.Arrays;
+
 /**
  * @author hx
  * @version 1.0.0
@@ -44,6 +46,11 @@ public class T_03_InsertSort {
         for (int i : arr) {
             System.out.print(i);
         }
+    }
+
+
+    public static void comparator(int[] arr) {
+        Arrays.sort(arr);
     }
 
 
