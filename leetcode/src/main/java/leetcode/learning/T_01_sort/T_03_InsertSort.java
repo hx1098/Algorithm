@@ -1,4 +1,4 @@
-package leetcode.learning.T_01;
+package leetcode.learning.T_01_sort;
 
 import java.util.Arrays;
 

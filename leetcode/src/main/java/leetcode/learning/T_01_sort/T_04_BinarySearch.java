@@ -1,6 +1,4 @@
-package leetcode.learning.T_01;
-
-import java.util.Queue;
+package leetcode.learning.T_01_sort;
 
 /**
  * @author hx
