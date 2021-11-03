@@ -1,0 +1,15 @@
+star法则:
+
+status:
+   version
+
+
+
+
+task:
+
+
+action:
+
+
+result:
