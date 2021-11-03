@@ -25,12 +25,18 @@ public class T_01_Xor {
         System.out.println(a);
         System.out.println(b);
 
+        System.out.println("--------a^b----------");
+        System.out.println(a^b);
+        //a   0000 1010   = 10
+        //b   0000 0110   = 6
+        //a^b 0000 1100   = 12
+
+
 
         System.out.println("========== & ============");
         // 取反加1就是自己的相反数
         int c = 7;
         System.out.println( ~c + 1 );
-        System.out.println();
     }
 
 }
