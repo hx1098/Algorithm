@@ -1,3 +1,4 @@
+
 ```bash
 #单号版启动
 #启动kafka
@@ -21,7 +22,7 @@ tion-factor 1
 
 ```
 
-kafka集群搭建:
+## kafka集群搭建:
 
 ```shell
 #从远程的主机上复制到当前目录文件夹下面
@@ -83,7 +84,85 @@ borker_id=1 #三台不能相同.
 ./usr/local/kafka-2.11/bin/kafka-server-start.sh -daemon usr/local/kafka-2.11/config/server.properties
 jps
 
+```
 
+
+
+## kafka集群环境下创建topic
+
+```bash
+#创建一个topic
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --create --topic topic01 --partitions 3 --replication-factor 2
+#查看集群下有几个topic
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --list
+#查看备份
+cd /usr/local/kafka/data
+
+
+#副本因子在每台服务器上都存储了两份
+--replication-factor 2
+```
+
+node75服务器
+
+![image-20211106102630240](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106102630.png)
+
+node76服务器
+
+![image-20211106102716511](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106102716.png)
+
+node77服务器
+
+![image-20211106102746226](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106102746.png)
+
+## 查看topic
+
+```bash
+#查看topic
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --describe --topic topic01
 
 ```
+
+![image-20211106103400454](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106103400.png)
+
+
+
+## 创建topic
+
+```bash
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --create --topic topic02 --partitions 2 --replication-factor 3
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --describe --topic topic02
+```
+
+![image-20211106104231480](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106104231.png)
+
+
+
+## 修改分区
+
+分区只能增加不能减少
+
+```bash
+#拿上面的来说, 将其中的分区减少为2, 则会报错
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --alter --topic topic02 --partitions 2
+#如果增加为3
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --alter --topic topic02 --partitions 3
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --describe --topic topic02
+```
+
+![image-20211106104653223](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106104653.png)
+
+
+
+## 删除topic
+
+```bash
+#删除后实际上只是打了一个delee的标签
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --delete --topic topic02
+cd /usr/local/kafka-2.11/data
+```
+
+![image-20211106105107092](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211106105107.png)
+
+
 
