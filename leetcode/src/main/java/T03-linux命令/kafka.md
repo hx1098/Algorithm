@@ -166,3 +166,29 @@ cd /usr/local/kafka-2.11/data
 
 
 
+
+
+
+
+## 发布与订阅topic
+
+```bash
+
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --create --topic topic01 --partitions 3 --replication-factor 3
+./bin/kafka-topics.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --list
+
+#消费者,会卡这一直等待生产者进行生产消息
+./bin/kafka-console-consumer.sh --bootstrap-server node75:9092,node76:9092,node77:9092 --topic topic01 --group g1 --property print.key=true --property print.value=true --property key.separator=,
+#创建一个生产者
+./bin/kafka-console-producer.sh --broker-list node75:9092,node76:9092,node77:9092 --topic topic01
+#没能打出一个完美的hello wrold出来, 只能说手残了,
+#其中, --property 是非必选的指令, 这里仅仅是打印出来key和value的值出来, 但是这里我们是没办法输入key的值来的, 所以下面的打印是空的key
+#生产者要使用的是broker指令了
+```
+
+![image-20211107225843615](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211107225843.png)
+
+
+
+![image-20211107225814457](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211107225821.png)
+
