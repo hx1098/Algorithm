@@ -192,3 +192,136 @@ cd /usr/local/kafka-2.11/data
 
 ![image-20211107225814457](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211107225821.png)
 
+
+
+
+
+## javaapi的使用
+
+### 创建删除查询
+
+```java
+Properties properties = new Properties();
+        /**这里是我的虚拟机的名称*/
+        properties.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "node75:9092,node76:9092,node77:9092");
+        KafkaAdminClient adminClient = (KafkaAdminClient) KafkaAdminClient.create(properties);
+
+        //这种是异步的创建, 所以说他返回的时候偶是一个topic
+        //adminClient.createTopics(Arrays.asList(new NewTopic("topic02", 3, (short) 3)));
+
+        //同步创建的topic
+     /*   CreateTopicsResult topic3 = adminClient.createTopics(Arrays.asList(new NewTopic("topic01", 3, (short) 3)));
+        topic3.all().get();*/
+
+        //查看kafka中有多少个topic,
+      /*  ListTopicsResult listTopicsResult = adminClient.listTopics();
+        Set<String> topicSet = listTopicsResult.names().get();
+        for (String s : topicSet) {
+            System.out.println(s);
+        }*/
+
+        //topic的删除
+   /*     DeleteTopicsResult deleteTopicsResult = adminClient.deleteTopics(Arrays.asList("topic01"));
+        deleteTopicsResult.all().get();*/
+
+
+
+        DescribeTopicsResult topic01 = adminClient.describeTopics(Arrays.asList("topic01"));
+        Map<String, TopicDescription> topic01Result = topic01.all().get();
+        System.out.println("==========================");
+        for (Map.Entry<String, TopicDescription> entry : topic01Result.entrySet()) {
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        }
+        System.out.println("==========================");
+
+        //关闭
+        adminClient.close();
+```
+
+
+
+### topic的消费与生产
+
+```java
+        //创建kafkaProducer 生产者
+        Properties properties = new Properties();
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "node75:9092,node76:9092,node77:9092");
+        //序列化
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,  StringSerializer.class.getName());
+
+        KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
+        for (int i = 0; i < 10; i++) {
+            ProducerRecord<String, String> topic01 = new ProducerRecord<>("topic01", "第" + i + "次 hello wrold");
+            kafkaProducer.send(topic01);
+
+        }
+
+        kafkaProducer.close();
+```
+
+
+
+```java
+ 		//创建kafkaConsumer  消费者
+        Properties properties = new Properties();
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "node75:9092,node76:9092,node77:9092");
+        //消费者需要进行反序列化
+        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        //消费者的组信息
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "topic01");
+        KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
+        //    2.订阅相关的Tipics
+        kafkaConsumer.subscribe(Pattern.compile("^topic.*"));
+        //    遍历消息
+        while (true) {
+            ConsumerRecords<String, String> consumerRecords = kafkaConsumer.poll(Duration.ofSeconds(10));
+            //如果取到了数据
+            if (!consumerRecords.isEmpty()) {
+                Iterator<ConsumerRecord<String, String>> recordIterator = consumerRecords.iterator();
+                while (recordIterator.hasNext()) {
+                    ConsumerRecord<String, String> record = recordIterator.next();
+
+                    String topic = record.topic();
+                    int partition = record.partition();//哪个分区的消息
+                    long offset = record.offset();//在这个消息分区中的偏移量
+
+                    String value = record.value();
+                    String key = record.key();
+                    long timestamp = record.timestamp();
+
+                    System.out.println(topic + "\t" + "分区:"+partition + ", 偏移量:" + offset + ",key :" + key + ", value:" + value + ", timestamp:" + timestamp) ;
+                }
+            }
+        }
+```
+
+
+
+同时启动多个消费者时候, 可以看到不同的分区是别均分到不同的消费者的, 可以看到, 在同一个消费者组(topic01)里面, 随着三台消费者的启动, 不同的分区分配到了不同的消费者, 
+
+![image-20211109203847510](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211109203854.png)
+
+
+
+![image-20211109203905061](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211109203905.png)
+
+
+
+![image-20211109203917958](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211109203918.png)
+
+
+
+如果我启动了一个topic2的消费者组, 如果启动了第一个就直接分配到了三个分区.
+
+![image-20211109204213142](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211109204213.png)
+
+
+
+
+
+
+
+## 自定义分区
+
