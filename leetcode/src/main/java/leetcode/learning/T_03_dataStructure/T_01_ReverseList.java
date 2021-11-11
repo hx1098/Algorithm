@@ -71,13 +71,17 @@ public class T_01_ReverseList {
     }
 
 
+    /**非常判断一个人呢的codeing能力
+     * 
+     * */
     public static Node generateRandomLinkedList(int len, int value) {
-        //int size =
         return null;
     }
 
     public static void main(String[] args) {
-
+        double ceil = Math.ceil(1);
+        System.out.println(ceil);
+        System.out.println(ceil >= 1);
     }
 
 
