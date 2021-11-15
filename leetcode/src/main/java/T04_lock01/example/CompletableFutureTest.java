@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * @editTime 2021/9/26 14:05
  * @editDescription
  */
-public class CallablleService {
+public class CompletableFutureTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture<String> future = new CompletableFuture<>();
