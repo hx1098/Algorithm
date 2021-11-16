@@ -49,6 +49,9 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
                 head = cur;
             }
         }
+
+
+
     }
 
 

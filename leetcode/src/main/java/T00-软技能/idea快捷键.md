@@ -1,3 +1,28 @@
+常用快捷键
+
+ctr + f12 呼出整个类的方法和结构
+ctr + alt + shift + n  超找controller
+ctr + shift + f 一般的查找
+ctr + d 复制一行
+ctr + w 选择一个单词, 再次选择扩大选择
+ctr + w + shift 缩小选择范围
+shift + f6 修改类名
+alt + j  批量选择修改
+shift + alt 选择多个文本段
+Ctrl+Shift+Alt (Windows or UNIX)/ Shift+Alt+Cmd(macOS) 多个矩阵选择
+ctr + shift + c  复制文件路径
+Ctrl+Shift+Alt+V 粘贴为纯文本
+ctr + alt + left  返回上一次编辑地方
+ctr + alt + right   返回下一次编辑地方
+ctr + f4 关闭当前文件
+ctr + e  打开最近编辑的文件
+ctr + alt + 左键   多光标编辑多行文件
+f11  设置Bookmark标签, 可以在favorities当中查看
+
+
+
+
+
 #### Ctrl
 
 快捷键	介绍
