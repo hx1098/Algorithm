@@ -325,3 +325,128 @@ Properties properties = new Properties();
 
 ## 自定义分区
 
+
+
+
+
+## 安装aegle
+
+```bash
+tar -zxvf eagle
+
+#设置全局变量
+vi /etc/profile
+#kafka-eagle
+export KE_HOME=/usr/local/kafka-eagle
+export PATH=$PATH:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$KE_HOME/bin
+
+#使其立即生效
+source /etc/profile
+#检测
+echo $KE_HOME
+
+
+vim /usr/local/kafka-eagle/conf/
+#该注释掉的都注释掉,
+kafka.eagle.zk.cluster.alias=cluster1
+cluster1.zk.list=node75:2181,node76:2181,node77:2181
+#cluster2.zk.list=xdn10:2181,xdn11:2181,xdn12:2181
+
+kafka.eagle.metrics.charts=true
+#cluster2.kafka.eagle.sasl.enable=false
+#cluster2.kafka.eagle.sasl.protocol=SASL_PLAINTEXT
+#cluster2.kafka.eagle.sasl.mechanism=PLAIN
+#cluster2.kafka.eagle.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="kafka" password="kafka-e
+agle";#cluster2.kafka.eagle.sasl.client.id=
+######################################
+# kafka sqlite jdbc driver address
+######################################
+#kafka.eagle.driver=org.sqlite.JDBC
+#kafka.eagle.url=jdbc:sqlite:/hadoop/kafka-eagle/db/ke.db
+#kafka.eagle.username=root
+#kafka.eagle.password=www.kafka-eagle.org
+
+
+######################################
+# kafka mysql jdbc driver address 只用更改为你的链接地址就可以了, kafka回去自动创建
+######################################
+kafka.eagle.driver=com.mysql.jdbc.Driver
+kafka.eagle.url=jdbc:mysql://192.168.190.1:3306/ke?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+kafka.eagle.username=root
+kafka.eagle.password=123456
+
+
+rpm -q telnet
+yum install telnet*
+#致此 kafka-eagle配置完毕
+```
+
+
+
+```bash
+ vim kafka-server-start.sh 
+ 
+ #增加一行 export JMX_PORT=7788
+ 28 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
+ 29     export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
+ 30     export JMX_PORT=7788
+```
+
+
+
+```bash
+# 重启kafka
+jps 
+kill pid
+./bin/kafka-server-start.sh -daemon config/server.properties 
+
+#给egale bin文件赋权
+cd /usr/local/kafka-eagle/bin
+chmod u+x ke.sh
+
+./bin/ke.sh  start
+./bin/ke.sh  status
+```
+
+可以看到, 完成以后会在你自己配置的数据库总间建立一个数据库. 大概几十秒的样子, 然后你就可以根据下面生成的地址来访问页面了, 账号和密码都给你生成好了.
+
+![image-20211116223836451](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116223843.png)
+
+![image-20211116223914062](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116223914.png)
+
+
+
+来一张agle炫酷的图哈哈儿
+
+![image-20211116224616220](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116224616.png)
+
+![image-20211116224449888](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116224450.png)
+
+
+
+
+
+
+
+
+
+![image-20211117062643344](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211117062643.png)
+
+
+
+其中还有kesql的功能, 不多介绍了.
+
+```
+select * from "topic02" where "partition" in (1,2,0) limit 10;
+```
+
+![image-20211117063252260](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211117063252.png)
+
+
+
+![image-20211117063306175](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211117063306.png)
+
+
+
+![image-20211117063322764](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211117063322.png)
+
