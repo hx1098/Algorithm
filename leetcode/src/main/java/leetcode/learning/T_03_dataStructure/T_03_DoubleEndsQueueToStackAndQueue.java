@@ -30,13 +30,14 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
         public Node<T> head;
         public Node<T> tail;
 
-        /**向队列中添加数据,
+        /**
+         * 向队列中添加数据,
          * 心中要有一个模型, 队列的特点: 1.先进先出, 2.第一个数据, 第二个数据的指针指向变换
          * 第一次  null <- a -> null
-         *        此时的a 的next指针指向null, a的last指针也是指向的null
-         *
+         * 此时的a 的next指针指向null, a的last指针也是指向的null
+         * <p>
          * 第一次 null <- b -> <- a -> null  (这里的a指向b, b也指向a, )
-         *        此时a的last指向b,  b的next指向a, b的last指向null,
+         * 此时a的last指向b,  b的next指向a, b的last指向null,
          */
         public void addFromHead(T value) {
             Node<T> cur = new Node<T>(value);
@@ -51,14 +52,15 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
         }
 
 
-        /**向队列中删除数据
+        /**
+         * 向队列中删除数据
          * 心中要有一个模型, 队列的特点: 1.先进先出, 2.第一个数据, 第二个数据的指针指向变换
-         *
+         * <p>
          * 边界条件
          * 0.如果队列本来就是空, return
-         *
+         * <p>
          * 第一次 null <- b -> <- a -> null  (这里的a指向b, b也指向a, )
-         *      只用把b 的next 指针指向null, a 的next指针指向null,
+         * 只用把b 的next 指针指向null, a 的next指针指向null,
          */
         public T popHead() {
             if (head == null) {
@@ -93,13 +95,64 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
         }
 
 
-        /**如果头节点的是null, 则该链表一定是空的.*/
+        /**
+         * 如果头节点的是null, 则该链表一定是空的.
+         */
         public boolean isEmpty() {
             return head == null;
         }
-
-
     }
+
+    public static class MyStack<T> {
+        private DoubleEndQueue<T> queue;
+
+        public MyStack() {
+            queue = new DoubleEndQueue<>();
+        }
+
+        public void push(T value) {
+            queue.addFromHead(value);
+        }
+
+        public T pop() {
+            return queue.popHead();
+        }
+        public boolean isEmpty() {
+            return queue.isEmpty();
+        }
+    }
+
+    public static class MyQueue<T> {
+        private DoubleEndQueue<T> queue;
+
+        public MyQueue() {
+            queue = new DoubleEndQueue<>();
+        }
+
+        public void push(T value) {
+            queue.addFromHead(value);
+        }
+        public T poll() {
+            return queue.popFromBottom();
+        }
+        public boolean isEmpty() {
+            return queue.isEmpty();
+        }
+    }
+
+    public static boolean isEqual(Integer o1, Integer o2) {
+        if (o1 == null && o2 != null) {
+            return false;
+        }
+        if (o1 != null && o2 == null) {
+            return false;
+        }
+        if (o1 == null && o2 == null) {
+            return true;
+        }
+        return o1.equals(o2);
+    }
+
 
 
 
