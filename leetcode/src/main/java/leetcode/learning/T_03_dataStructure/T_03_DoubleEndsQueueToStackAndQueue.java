@@ -51,8 +51,57 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
         }
 
 
+        /**向队列中删除数据
+         * 心中要有一个模型, 队列的特点: 1.先进先出, 2.第一个数据, 第二个数据的指针指向变换
+         *
+         * 边界条件
+         * 0.如果队列本来就是空, return
+         *
+         * 第一次 null <- b -> <- a -> null  (这里的a指向b, b也指向a, )
+         *      只用把b 的next 指针指向null, a 的next指针指向null,
+         */
+        public T popHead() {
+            if (head == null) {
+                return null;
+            }
+            Node<T> cur = head;
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.next;
+                cur.next = null;
+                head.last = null;
+            }
+            return cur.value;
+        }
+
+
+        public T popFromBottom() {
+            if (head == null) {
+                return null;
+            }
+            Node<T> cur = head;
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                tail = tail.last;
+
+            }
+            return cur.value;
+        }
+
+
+        /**如果头节点的是null, 则该链表一定是空的.*/
+        public boolean isEmpty() {
+            return head == null;
+        }
+
 
     }
+
+
 
 
 }

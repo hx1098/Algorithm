@@ -409,7 +409,7 @@ chmod u+x ke.sh
 ```
 
 可以看到, 完成以后会在你自己配置的数据库总间建立一个数据库. 大概几十秒的样子, 然后你就可以根据下面生成的地址来访问页面了, 账号和密码都给你生成好了.
-
+http://192.168.190.75:8048/ke/
 ![image-20211116223836451](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116223843.png)
 
 ![image-20211116223914062](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/kafka/20211116223914.png)
