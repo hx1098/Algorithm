@@ -8,7 +8,7 @@ package leetcode.learning.T_03_dataStructure;
  * @description
  * @editUser hx
  * @editTime 2021/11/16 6:36
- * @editDescription 双端队列
+ * @editDescription 双向链表实现栈和队列
  */
 public class T_03_DoubleEndsQueueToStackAndQueue {
 
@@ -153,6 +153,7 @@ public class T_03_DoubleEndsQueueToStackAndQueue {
         return o1.equals(o2);
     }
 
+    // todo-hx 2021/11/20 9:25 编写测试类
 
 
 
