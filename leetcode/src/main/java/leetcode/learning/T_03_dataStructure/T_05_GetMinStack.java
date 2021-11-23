@@ -30,6 +30,11 @@ public class T_05_GetMinStack {
         private Stack<Integer> dataStack;
         private Stack<Integer> minStack;
 
+        public MyStack1() {
+            dataStack = new Stack<>();
+            minStack = new Stack<>();
+        }
+
         public void push(Integer value) {
             //边界条件
            /* if (dataStack.empty()) {
@@ -67,6 +72,19 @@ public class T_05_GetMinStack {
             }
             return minStack.peek();
         }
+    }
+
+    public static void main(String[] args) {
+        MyStack1 stack1 = new MyStack1();
+        stack1.push(3);
+        System.out.println(stack1.getMinStatic());
+
+        stack1.push(5);
+        System.out.println(stack1.getMinStatic());
+
+        stack1.push(2);
+        System.out.println(stack1.getMinStatic());
+
     }
 
 
