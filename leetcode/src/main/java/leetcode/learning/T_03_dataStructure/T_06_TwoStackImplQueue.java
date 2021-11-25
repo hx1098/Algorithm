@@ -1,6 +1,9 @@
 package leetcode.learning.T_03_dataStructure;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * @author hx
@@ -43,7 +46,7 @@ public class T_06_TwoStackImplQueue {
 
         public void add(Integer val) {
             stackPush.push(val);
-            pushToPop();
+            //pushToPop();
         }
 
 
@@ -62,8 +65,6 @@ public class T_06_TwoStackImplQueue {
             pushToPop();
             return stackPop.peek();
         }
-
-
     }
 
     public static void main(String[] args) {
@@ -74,7 +75,10 @@ public class T_06_TwoStackImplQueue {
 
         System.out.println(testQueue.pop());
 
-        //Queue
+        Queue<Integer> queue = new ArrayBlockingQueue<>(10);
+        queue.poll(); //检索并删除此队列的头, 如果这个队列为空, 返回null
+        queue.peek();//检索但不删除此队列的头, 如果这个队列为空, 返回null
 
+        Queue<String> integers = new LinkedList<>();
     }
 }
