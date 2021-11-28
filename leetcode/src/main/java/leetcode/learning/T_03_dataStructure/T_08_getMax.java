@@ -26,7 +26,7 @@ public class T_08_getMax {
     }
 
     private  static int possess(int[] arr, int L, int R) {
-        //如果L == R 则说明拆分到了只剩一个数据了, 直接返回就可以了.
+        //如果L == R 则说明拆分到了只剩一个数据了, 直接返回就可以了.  拆分到最小的时候哦就是 base case
         if (L == R) {
             return arr[L];
         }
