@@ -74,7 +74,5 @@ public class T_09_HashMapAndSortMap {
         map2.put(node1, "234");
         //T_09_HashMapAndSortMap$Node cannot be cast to java.lang.Comparable
         //</editor-fold>
-
     }
-
 }
