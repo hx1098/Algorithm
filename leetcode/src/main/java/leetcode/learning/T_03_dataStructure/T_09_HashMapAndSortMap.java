@@ -68,7 +68,6 @@ public class T_09_HashMapAndSortMap {
 
     //    treeMap的key值只能是string, integer, double等这一类的基础数据结构, 否则会报错
 
-
         //<editor-fold desc="这里是演示的报错代码">
         TreeMap<Node,String> map2 = new TreeMap<>();
         map2.put(node1, "234");
