@@ -78,4 +78,31 @@ public class T_01_RecursionMergeSort {
         }
     }
 
+    //非递归的方式实现
+    public  static void mergeSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        int mergeSize = 1;//设置步长
+        int N = arr.length;
+        while (N > mergeSize) {
+            int L = 0;
+            while (L < N) {
+                if (mergeSize >= N - L) {//如果当前的步长大于L~N的距离, 说明L N之间没有数据了
+                    break;
+                }
+                int M = L + mergeSize;//默认步长为1， 第一组数据下标为：0， 那第二个组数据的下标 就是0加上步长， 为：1
+                int R = M + Math.min(mergeSize, N - M - 1);// 如果右组凑够了一组，就是步长, mergeseize, 凑不够就是N-M-1, 一般来说是最后一组凑不够
+                merge(arr, L, M, R);
+                L = R + 1;
+            }
+            // todo-repeate 2021/12/7 22:26 这个归并排序防止溢出不懂,
+            if (mergeSize > N / 2) {
+                break;
+            }
+            mergeSize <<= 1;
+        }
+
+    }
+
 }
