@@ -72,7 +72,8 @@ public class T_01_RecursionMergeSort {
 
     public static void main(String[] args) {
         int[] arr = {3, 2, 4, 89, 0, 5};
-        sort(arr);
+        //sort(arr);
+        mergeSort2(arr);
         for (int i : arr) {
             System.out.println(i);
         }
@@ -91,7 +92,7 @@ public class T_01_RecursionMergeSort {
                 if (mergeSize >= N - L) {//如果当前的步长大于L~N的距离, 说明L N之间没有数据了
                     break;
                 }
-                int M = L + mergeSize;//默认步长为1， 第一组数据下标为：0， 那第二个组数据的下标 就是0加上步长， 为：1
+                int M = L + mergeSize -1;//默认步长为1， 第一组数据下标为：0， 那第二个组数据的下标 就是0加上步长， 为：1
                 int R = M + Math.min(mergeSize, N - M - 1);// 如果右组凑够了一组，就是步长, mergeseize, 凑不够就是N-M-1, 一般来说是最后一组凑不够
                 merge(arr, L, M, R);
                 L = R + 1;
