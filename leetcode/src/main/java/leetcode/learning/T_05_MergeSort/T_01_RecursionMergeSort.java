@@ -37,9 +37,12 @@ public class T_01_RecursionMergeSort {
         if (L == R) {
             return;
         }
+        //0~middle 有序
         process(arr, L, middle);
+        //middle+1 ~ right 有序
         process(arr, middle + 1, R);
 
+        //合并
         merge(arr,L,middle,R);
 
     }
