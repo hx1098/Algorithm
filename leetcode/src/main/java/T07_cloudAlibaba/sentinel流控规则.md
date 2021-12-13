@@ -156,5 +156,7 @@ sentinel:
 
 1. 匀速器（`RuleConstant.CONTROL_BEHAVIOR_RATE_LIMITER`）方式。这种方式严格控制了请求通过的间隔时间，也即是让请求以均匀的速度通过，对应的是漏桶算法。具体的例子参见 [PaceFlowDemo](https://github.com/alibaba/Sentinel/blob/master/sentinel-demo/sentinel-demo-basic/src/main/java/com/alibaba/csp/sentinel/demo/flow/PaceFlowDemo.java)。
 
+   设置每秒钟只通过一个, 超时时间20s, 通过postman进行测试
 
+![image-20211213204010209](https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/nacos/20211213204017.png)
 
