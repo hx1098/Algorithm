@@ -1,0 +1,49 @@
+package leetcode.learning.T_05_MergeSort;
+
+import com.sun.org.apache.regexp.internal.REUtil;
+
+/**
+ * @author hx
+ * @version 1.0.0
+ * @createTime 2021/12/17 20:06
+ * @description
+ * @editUser hx
+ * @editTime 2021/12/17 20:06
+ * @editDescription 逆序对问题
+ *  一个左边的数和一个右边的数构成了一个降序
+ *  { 3,1,0,4,3,1}
+ *  1. 第一个3为视角:  (3,1) (3,0),(3,1)
+ *  2. 第二个1为视角:  (1,0)
+ *  3. ......
+ *  其实就是求多个少个比右边小,
+ *
+ *
+ *
+ *
+ */
+public class T_04_ReversePair {
+
+    public int reversePair(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return 0;
+        }
+        return process(arr, 0, arr.length);
+    }
+
+    private int process(int[] arr, int L, int R) {
+        if (R == L) {
+            return 0;
+        }
+        int M = L + ((R - L) >> 1);
+        // todo-repeate 2021/12/17 22:48 不是太理解
+        return process(arr, 0, M) + process(arr, M + 1, R) + merge(arr, L, M, R);
+    }
+
+    private int merge(int[] arr, int L, int M, int R) {
+
+        // todo-hx 2021/12/17 22:48
+        return 0;
+    }
+
+
+}
