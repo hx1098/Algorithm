@@ -40,10 +40,30 @@ public class T_04_ReversePair {
     }
 
     private int merge(int[] arr, int L, int M, int R) {
+        int[] help = new int[R - L + 1];
+        int p1 = M;
+        int p2 = R;
+        int i = help.length - 1;
+        int res = 0;
+        while (p1 >= L && p2 > M) {
+            res += arr[p1] > arr[p2] ? (p2 - M) : 0;
+            help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
+        }
+        while (p1 >= L) {
+            help[i--] = arr[p1--];
+        }
+        while (p2 < M) {
+            help[i--] = arr[p2--];
+        }
 
+        for (i = 0; i < help.length; i++) {
+            arr[L + i] = help[i];
+        }
         // todo-hx 2021/12/17 22:48
-        return 0;
+        return res;
     }
+
+
 
 
 }
