@@ -82,7 +82,7 @@ public class T_01_RecursionMergeSort {
         }
     }
 
-    //非递归的方式实现
+    //迭代的方式实现归并排序
     public  static void mergeSort2(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
