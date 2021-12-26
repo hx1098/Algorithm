@@ -62,7 +62,7 @@ https://sentinelguard.io/zh-cn/docs/parameter-flow-control.html
 
 2. sentinel 的进阶配置:
 
-参数的额外项就是可以控制的更加精细, 比如我们可以设置hot2 = WangLiHong这个参数到达某一个阈值时候进行限流, 参数类型仅仅支持7中数据类型, 
+参数的额外项就是可以控制的更加精细, 比如我们可以设置hot1=wanglihong这个参数到达某一个10阈值时候进行限流, 参数类型仅仅支持7中数据类型, 
 
 <img src="https://cdn.jsdelivr.net/gh/hx1098/Algorithm@master/img/nacos/20211225143822.png" alt="image-20211225143822518" style="zoom:80%;" />
 
