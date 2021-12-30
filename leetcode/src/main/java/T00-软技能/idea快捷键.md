@@ -19,6 +19,8 @@ ctr + f4 关闭当前文件
 ctr + e  打开最近编辑的文件
 ctr + alt + 左键   多光标编辑多行文件
 f11  设置Bookmark标签, 可以在favorities当中查看
+Ctrl + Tab	编辑窗口切换
+Ctrl + Shift + J	自动将下一行合并到当前行末尾 （必备）
 ```
 
 

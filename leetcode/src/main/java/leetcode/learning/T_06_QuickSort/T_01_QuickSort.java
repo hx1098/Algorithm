@@ -10,6 +10,9 @@ import java.util.Arrays;
  * @editUser hx
  * @editTime 2021/12/22 14:20
  * @editDescription 快速排序
+ * 实在不懂可以看这个视频:
+ * https://www.bilibili.com/video/BV1rV411j7f6?share_source=copy_web
+ * https://www.bilibili.com/video/BV1B34y1S7Yi?from=search&seid=14497850874747043816&spm_id_from=333.337.0.0
  */
 public class T_01_QuickSort {
 
