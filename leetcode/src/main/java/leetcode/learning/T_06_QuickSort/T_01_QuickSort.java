@@ -29,8 +29,8 @@ public class T_01_QuickSort {
         }
         int M = partition(arr, L, R);
 
-       /* quickSort(arr, L, M - 1);
-        quickSort(arr, M + 1, R);*/
+        quickSort(arr, L, M - 1);
+        quickSort(arr, M + 1, R);
     }
 
 
@@ -41,12 +41,15 @@ public class T_01_QuickSort {
         }
         //l == r说明左边界和右边界的重合了
         if (l == r) {
-            return l;
+            return r;
         }
+        //这个lessEqual就是括号, 向右进行一个数一个数的进行括起来. 而且都是小于基准值的数据.
         int lessEqual = l - 1;
         //取数组的第一个值作为基准值, 进行比较
         int index = l;
+        //(本次循环的中分过来的数据个数, 就是R)  >  当前的index值,
         while (index < r) {
+            //循环, 比较, 如果小于基准值, lessEqua继续向外扩张, 如果大于基准值, lessEqua不动,指向下一个数据进行比较
             if (arr[index] <= arr[r]) {
                 swap(arr, index, ++lessEqual);
             }
