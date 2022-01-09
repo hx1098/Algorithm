@@ -54,9 +54,9 @@ public class T_02_QuickSort_V2 {
                 index++;
             }
         }
-        //最后的一个数需要进行交换
-        swap(arr,++less,R);
-        return new int[0];
+        //最后的一个数需要进行交换,more在执行到这里的时候一定到了基准值的前一个位置.将arr[r]这个基准值和 第一个大于基准值的 数据进行交换.
+        swap(arr,more,R);
+        return new int[]{less+1,more};//等于基准值的第一个位置 ~ 等于区域的最后一个位置
     }
 
     /**两数交换*/
