@@ -9,7 +9,10 @@ import java.util.Arrays;
  * @description
  * @editUser hx
  * @editTime 2021/12/22 14:20
- * @editDescription 快速排序, 挺晚了归并, 在听快排,
+ * @editDescription 荷兰国旗问题，
+ *  有点像归并排序， 但是归并排序是先拆到一个一个的， 而后再一对一对的合并，
+ *  快排是随机找出一个基准值, 放到准确的一个位置,然后再进行一个个的找基准值, 总得来首也是拆分到一个一个的数据为止, 这时基本已经排好了序.
+ *                   ,
  * 实在不懂可以看这个视频:
  * https://www.bilibili.com/video/BV1rV411j7f6?share_source=copy_web
  * https://www.bilibili.com/video/BV1B34y1S7Yi?from=search&seid=14497850874747043816&spm_id_from=333.337.0.0
