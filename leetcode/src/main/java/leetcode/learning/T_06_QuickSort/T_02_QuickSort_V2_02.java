@@ -61,9 +61,9 @@ public class T_02_QuickSort_V2_02 {
         int more = R;
         int index = L;
         while (index < more) {
-            System.out.println("index=" + index + ", less=" + less + ", more=" + more);
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
+            //System.out.println("index=" + index + ", less=" + less + ", more=" + more);
+            //Arrays.stream(arr).forEach(System.out::print);
+            //System.out.println();
             if (arr[index] < arr[R]) {
                 swap(arr, index++, ++less);
             } else if (arr[index] > arr[R]) {
@@ -74,9 +74,9 @@ public class T_02_QuickSort_V2_02 {
         }
 
         swap(arr, more, R);
-        System.out.println("index=" + index + ", less=" + less + ", more=" + more);
-        Arrays.stream(arr).forEach(System.out::print);
-        System.out.println("================");
+        //System.out.println("index=" + index + ", less=" + less + ", more=" + more);
+        //Arrays.stream(arr).forEach(System.out::print);
+        //System.out.println("================");
         return new int[]{less + 1, more};
     }
 
