@@ -1,0 +1,10 @@
+rpm -Uvh *.rpm --nodeps --force
+
+
+#启动
+/bin/systemctl start docker.service
+
+#
+docker pull hello-world
+
+docker run hello-world
