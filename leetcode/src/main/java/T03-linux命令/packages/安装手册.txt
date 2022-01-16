@@ -4,6 +4,11 @@ rpm -Uvh *.rpm --nodeps --force
 #启动
 /bin/systemctl start docker.service
 
+#使用阿里云镜像
+https://help.aliyun.com/document_detail/60750.html
+
+
+
 #
 docker pull hello-world
 
