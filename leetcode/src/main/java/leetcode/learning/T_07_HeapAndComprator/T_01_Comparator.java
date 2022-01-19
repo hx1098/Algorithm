@@ -1,7 +1,5 @@
 package leetcode.learning.T_07_HeapAndComprator;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 import java.util.*;
 
 /**
@@ -13,7 +11,7 @@ import java.util.*;
  * @editTime 2022/1/12 6:28
  * @editDescription
  */
-public class TestComparator {
+public class T_01_Comparator {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
@@ -48,6 +46,20 @@ public class TestComparator {
 
         TreeMap<String, Object> treeMap = new TreeMap<>(new PersonComparator());
         TreeMap<String, Object> treeMap2 = new TreeMap<>();
+
+
+        Set<Integer> integerSet = new TreeSet<>((a, b) -> a - b);
+        //默认是小根堆,
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((a, b) -> b - a);
+        priorityQueue.add(5);
+        priorityQueue.add(5);
+        priorityQueue.add(5);
+        //5
+        //System.out.println(priorityQueue.peek());
+
+        priorityQueue.add(6);
+        priorityQueue.add(7);
+        System.out.println(priorityQueue.peek());
 
 
     }

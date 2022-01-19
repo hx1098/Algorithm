@@ -1,7 +1,5 @@
 package leetcode.learning.T_07_HeapAndComprator;
 
-import java.util.Arrays;
-
 /**
  * @author hx
  * @version 1.0.0
@@ -30,6 +28,9 @@ import java.util.Arrays;
 
 public class T_02_Heap{
 
+
+
+    //<editor-fold desc="手写堆实现">
     private static class MyMaxHeap{
         private int[] heap;
         private final int limit;
@@ -102,11 +103,15 @@ public class T_02_Heap{
         }
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         System.out.println(-1 % 2);
         System.out.println(1 / 2);
         System.out.println(3 / 2);
         System.out.println(4 / 2);
+
+
     }
+    //</editor-fold>
+
 
 }
