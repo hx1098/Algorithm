@@ -70,8 +70,9 @@ public class T_03_HeapSort {
 
    @Test
    public void test1(){
-       int[] arr = {2, 1, 3};
-       heapify(arr, 0, arr.length-1);
+       //int[] arr = {2, 1, 3};
+       int[] arr = {2, 1, 5, 3};
+       heapify(arr, 0, arr.length);
        Arrays.stream(arr).forEach(System.out::print);
    }
 
