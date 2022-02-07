@@ -37,13 +37,84 @@ public class T_02_BubbleSort {
         arr[j] = tmp;
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         int[] arr = {10, 8, 4, 9};
-        bubble(arr);
+        bubboSort2(arr);
         for (int i : arr) {
             System.out.print(i);
         }
+    }*/
+
+    public static void bubboSort2(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
+            }
+        }
     }
+
+
+    public static void main(String[] args) {
+        int testTime = 50_0000;
+        int maxSize = 100;
+        int maxValue = 100;
+        boolean succeed = true;
+        for (int i = 0; i < testTime; i++) {
+            int[] arr1 = generaRandomArray(maxSize, maxValue);
+            int[] arrCopy = copyArray(arr1);
+
+            if (!isEqual(arr1, arrCopy)) {
+                System.out.println("false, fuck!!s");
+            } else {
+                System.out.println("nice");
+            }
+        }
+
+
+    }
+
+    private static boolean isEqual(int[] arr1, int[] arrCopy) {
+        if ((arr1 == null && arrCopy != null) || (arr1 != null && arrCopy == null)) {
+            return false;
+        }
+        if ((arr1.length == 0 && arrCopy.length != 0) || (arr1.length != 0 && arrCopy.length == 0)) {
+            return false;
+        }
+        if (arr1 == null && arrCopy == null) {
+            return true;
+        }
+        if (arr1.length == 0 && arrCopy.length == 0) {
+            return true;
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            if(arr1[i] != arrCopy[i])
+                return false;
+        }
+        return true;
+    }
+
+    private static int[] copyArray(int[] arr1) {
+        int[] temp = new int[arr1.length];
+        for (int i = 0; i < arr1.length; i++) {
+            temp[i] = arr1[i];
+        }
+        return temp;
+    }
+
+    /*生成一个随机长度的数组*/
+    private static int[] generaRandomArray(int maxSize, int maxValue) {
+        int[] arr = new int[(int) ((maxValue + 1) * Math.random())];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((maxValue + 1) * Math.random() - (int) (maxValue * Math.random()));
+        }
+        return arr;
+    }
+
+
+
+
 
 
 }
