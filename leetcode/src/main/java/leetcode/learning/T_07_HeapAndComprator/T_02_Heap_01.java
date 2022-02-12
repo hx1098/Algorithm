@@ -37,7 +37,7 @@ public class T_02_Heap_01{
         private int heapSize;
 
         public MymaxHeap(int limit) {
-            heap = new int[heapSize];
+            heap = new int[limit];
             this.limit = limit;
             heapSize = 0;
         }
@@ -128,8 +128,21 @@ public class T_02_Heap_01{
     }
 
 
+
+
     public static void main(String[] args) {
         // todo-hx 2022/1/21 14:05 大顶堆测试,,,
+
+        MymaxHeap mymaxHeap = new MymaxHeap(5);
+        mymaxHeap.push(1);
+        mymaxHeap.push(2);
+        mymaxHeap.push(3);
+        mymaxHeap.push(4);
+        mymaxHeap.push(5);
+
+
+
+
 
 
     }
