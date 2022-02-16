@@ -1,8 +1,11 @@
 package leetcode.learning.T_08_HeapPlus;
 
+import com.sun.org.apache.xpath.internal.operations.And;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author hx
@@ -57,13 +60,34 @@ public class T_02_HeapGreater<T> {
     }
 
     public void remove(T obj) {
-        T replace = heap.get(heapSize - 1);
-        int index = indexMap.get(obj);
+        //如果删除的的数据刚好是最后一个位置, 则不用调整位置.
         indexMap.remove(obj);
         heap.remove(--heapSize);
-        if (replace != obj) {
 
+        T replace = heap.get(heapSize - 1);
+        int index = indexMap.get(obj);
+        //如果删除的的数据刚好不是最后一个位置.
+        if (replace != obj) {
+            heap.set(index, replace);
+            indexMap.put(replace, index);
+            //重新调整整个堆结构
+            resign(replace);
         }
+    }
+
+    public List<T> getAllElements() {
+        List<T> ans = new ArrayList<>();
+        for (T c : ans) {
+            ans.add(c);
+        }
+        return ans;
+    }
+
+    /*重新调整整个堆的位置.*/
+    private void resign(T replace) {
+        //调整位置的时候, 要末是往上移动的的, 要末世往下移动的.
+        heapInsert(indexMap.get(replace));
+        heapify(indexMap.get(replace));
     }
 
     private void heapify(int index) {
