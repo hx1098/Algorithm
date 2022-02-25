@@ -26,10 +26,13 @@ public class T_03_InsertSort {
         if(arr == null || arr.length < 2)return;
         // 外层仅仅判断的数据要循环多少次,
         for (int i = 1; i < arr.length; i++) {
+            System.out.println("=============");
             //内层判断 当前目标的左边是否有数据, 并且左边的数和目标数据 大小,
             for (int j = i - 1; j >= 0 && arr[j] > arr[j+1] ; j--) {
+                System.out.println("i = " + i + " , j = " + j);
                 swap(arr,j,j+1);
             }
+            Arrays.stream(arr).forEach(System.out::print);
         }
     }
 
@@ -41,7 +44,7 @@ public class T_03_InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 8, 4, 9};
+        int[] arr = {10, 8, 4, 9,3,2};
         insertSort(arr);
         for (int i : arr) {
             System.out.print(i);
@@ -52,6 +55,23 @@ public class T_03_InsertSort {
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
     }
+
+
+    public static void InsertSort2(int[] arr) {
+        if (arr == null || arr.length <= 2) return;
+        // 外层控制 保证有序的次数
+        // 内层控制 （依次向前进行比较）有几个数就比较几次， 找到合适位置插入的次数
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+                swap(arr, j, j + 1);
+            }
+        }
+    }
+
+
+
+
+
 
 
 }
