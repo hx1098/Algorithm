@@ -2,7 +2,6 @@ package leetcode.learning.T_01_sort;
 
 import org.junit.Test;
 
-import java.io.CharArrayReader;
 import java.util.Arrays;
 
 /**
@@ -24,6 +23,8 @@ public class T_01_SelectSort {
     // 2.3  2 ~ N-1 位置, 找到最小值, 排序到第2位置,
     // 2.4  3 ~ N-1 位置, 找到最小值, 排序到第3位置,
     // ....
+    //外层控制寻找几次最小值的次数
+    //内层控制 本次寻找最小值比较的次数
     /**选则排序*/
     public static void selectSort(int[] arr) {
         if (arr == null || arr.length < 2) {
@@ -148,5 +149,23 @@ public class T_01_SelectSort {
         generaRandomArray(1000, 1000);
     }
 
+
+    @Test
+    public void test13(){
+        int[] arr = {1, 4, 2, 1, 3};
+        selectSort2(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+
+    }
+
+    public static void selectSort2(int[] arr) {
+        for (int i = 0; i < arr.length-1; i++) {
+            int minIndex = i;
+            for (int j = i+1; j < arr.length; j++) {
+                minIndex = arr[minIndex] < arr[j] ? minIndex : j;
+            }
+            swap(arr, minIndex, i);
+        }
+    }
 
 }
