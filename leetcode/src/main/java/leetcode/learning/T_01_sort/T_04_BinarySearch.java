@@ -54,5 +54,20 @@ public class T_04_BinarySearch {
         System.out.println(aBoolean);
     }
 
+    public static boolean binarySearch2(int[] arr,int pos) {
+        if (arr == null || arr.length<2) return false;
+        int L = 0;
+        int R = arr.length - 1;
+        int middle = (L + R) / 2;
+        if (arr[middle] == pos) {
+            return true;
+        } else if (arr[middle] > pos) {
+            R = middle - 1;
+        } else {
+            L = middle + 1;
+        }
+        return arr[L] == pos;
+    }
+
 
 }
