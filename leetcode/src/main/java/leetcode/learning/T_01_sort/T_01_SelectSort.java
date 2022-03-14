@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @description
  * @editUser hx
  * @editTime 2021/10/25 22:18
- * @editDescription 选则排序 重点在于 找到最小值, 排列在第一个位置
+ * @editDescription 选则排序 重点在于 找到最小值, 排列在第i个位置
  */
 public class T_01_SelectSort {
 
@@ -158,13 +158,20 @@ public class T_01_SelectSort {
 
     }
 
+    //0 ~ N-1
+    //1 ~ N-1
+    //2 ~ N-1
+    //第一次过来的时候,
     public static void selectSort2(int[] arr) {
-        for (int i = 0; i < arr.length-1; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < arr.length; j++) {
-                minIndex = arr[minIndex] < arr[j] ? minIndex : j;
+        for (int i = 0; i < arr.length - 1;i++) {
+            Arrays.stream(arr).forEach(System.out::print);
+            System.out.println();
+            int min = i;//第一次循环找第一个位置的最小值, 第二次循环找第二个位置的最小值,
+            for (int j = i + 1; j < arr.length; j++) {
+                min = arr[j] < arr[min] ? j : min;
             }
-            swap(arr, minIndex, i);
+            swap(arr,min,i);
+
         }
     }
 

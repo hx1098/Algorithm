@@ -1,10 +1,11 @@
 package juc;
 
 
-import cn.hutool.core.bean.BeanUtil;
-import org.apache.commons.beanutils.BeanUtils;
+import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.*;
 
 /**
@@ -93,48 +94,58 @@ public class testThreadImport {
     // 100 个：  14
 
     public static void main(String[] args) {
-        List<Integer> times = new ArrayList<>();
-        for (int j = 0; j < 100; j++) {
-            long start = System.currentTimeMillis();
-            List<String> enrollStudentEntityList = new ArrayList<>();
-            for (int i = 0; i < 160; i++) {
-                enrollStudentEntityList.add(UUID.randomUUID().toString());
-            }
-
-            int nThreads = 1;
-            int size = 160;
-            ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
-            List<Future<Integer>> futures = new ArrayList<Future<Integer>>(nThreads);
-
-            for (int i = 0; i < nThreads; i++) {
-                final List<String> integers = enrollStudentEntityList.subList(size / nThreads * i, size / nThreads * (i + 1));
-
-                int finalI = i;
-                Callable<Integer> task1 = () -> {
-                    System.out.println("第" + (finalI + 1) + "批保存的数据");
-                    return 1;
-                };
-                futures.add(executorService.submit(task1));
-            }
-            executorService.shutdown();
-            if (!futures.isEmpty() && futures != null) {
-                System.out.println("10");
-            } else {
-                System.out.println(-10);
-            }
-            Integer integer = Integer.valueOf((int) (System.currentTimeMillis() - start));
-            System.out.println( "耗费时间: " + integer);
-            times.add(integer);
+        //List<Integer> times = new ArrayList<>();
+        //for (int j = 0; j < 100; j++) {
+        long start = System.currentTimeMillis();
+        List<String> enrollStudentEntityList = new ArrayList<>();
+        for (int i = 0; i < 190; i++) {
+            enrollStudentEntityList.add(UUID.randomUUID().toString());
         }
 
-        int a = 0;
+        int nThreads = 30;
+        int size = 190;
+        ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
+        List<Future<Integer>> futures = new ArrayList<Future<Integer>>(nThreads);
+        //定义一个任务集合
+        List<String> integers = null;
+        for (int i = 0; i < nThreads; i++) {
+            if (i ==  nThreads - 1) {
+                integers = enrollStudentEntityList.subList(size / nThreads * i, size);
+                System.out.println("---------------------------------------------------");
+            } else {
+                integers = enrollStudentEntityList.subList(size / nThreads * i, size / nThreads * (i + 1));
+            }
+            // 160 / 2 * 0 = 0,  160/2 * (0+1) = 80
+            // 160 / 2 * 1 = 80, 160/2 * (1+1) = 160
+            System.out.println("size: " + size + "  i: " + i + "  nthreads: " + nThreads + "  , (" + size / nThreads * i + " ," + size / nThreads * (i + 1) + ")");
+            int finalI = i;
+            Callable<Integer> task1 = () -> {
+                System.out.println("第" + (finalI + 1) + "批保存的数据");
+                return 1;
+            };
+            futures.add(executorService.submit(task1));
+        }
+        executorService.shutdown();
+
+
+        if (!futures.isEmpty() && futures != null) {
+            System.out.println("10");
+        } else {
+            System.out.println(-10);
+        }
+        Integer integer = Integer.valueOf((int) (System.currentTimeMillis() - start));
+        System.out.println("耗费时间: " + integer);
+        //times.add(integer);
+        //}
+
+       /* int a = 0;
         System.out.println("time.size" + times.size());
         for (int i = 0; i < times.size(); i++) {
             System.out.println(times.get(i));
             a = a + times.get(i);
         }
         System.out.print("平均值： ");
-        System.out.println(a / times.size());
+        System.out.println(a / times.size());*/
     }
 
 
@@ -205,6 +216,17 @@ public class testThreadImport {
             System.out.println(System.currentTimeMillis() - star);
         }
 
+
+    }
+
+
+    @Test
+    public void test1() {
+        List<String> uuids = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            uuids.add(UUID.randomUUID().toString());
+        }
+        List<String> strings = uuids.subList(1, 101);
 
     }
 
