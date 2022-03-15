@@ -1,5 +1,9 @@
 package leetcode.learning.T_01_sort;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
 /**
  * @author hx
  * @version 1.0.0
@@ -46,13 +50,20 @@ public class T_02_BubbleSort {
     }*/
 
     public static void bubboSort2(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
+        if(arr == null || arr.length < 2) return;
+        for (int i = 0; i < arr.length-1; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                 }
             }
         }
+    }
+    @Test
+    public void test1(){
+        int[] arr = {1, 4, 2, 1, 3};
+        bubboSort2(arr);
+        Arrays.stream(arr).forEach(System.out::print);
     }
 
 
@@ -71,8 +82,6 @@ public class T_02_BubbleSort {
                 System.out.println("nice");
             }
         }
-
-
     }
 
     private static boolean isEqual(int[] arr1, int[] arrCopy) {

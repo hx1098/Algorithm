@@ -44,8 +44,9 @@ public class T_03_InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 8, 4, 9,3,2};
-        insertSort(arr);
+        int[] arr = { 4, 9,3,2};
+        //insertSort(arr);
+        InsertSort2(arr);
         for (int i : arr) {
             System.out.print(i);
         }
@@ -57,13 +58,12 @@ public class T_03_InsertSort {
     }
 
 
+    //外层控制循环几次，
+    // 内层控制 0~0 有序， 0~1 有序， 0~2有序
     public static void InsertSort2(int[] arr) {
-        if (arr == null || arr.length <= 2) return;
-        // 外层控制 保证有序的次数
-        // 内层控制 （依次向前进行比较）有几个数就比较几次， 找到合适位置插入的次数
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-                swap(arr, j, j + 1);
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i+1; j > 0 && arr[j-1] > arr[j]; j--) {
+                swap(arr, j, j - 1);
             }
         }
     }
