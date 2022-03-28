@@ -21,6 +21,8 @@ ctr + alt + 左键   多光标编辑多行文件
 f11  设置Bookmark标签, 可以在favorities当中查看
 Ctrl + Tab	编辑窗口切换
 Ctrl + Shift + J	自动将下一行合并到当前行末尾 （必备）
+alt + shift + U  驼峰格式化代码(需要配合插件)
+
 ```
 
 
