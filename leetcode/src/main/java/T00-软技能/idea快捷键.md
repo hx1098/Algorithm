@@ -13,8 +13,8 @@ shift + alt 选择多个文本段
 Ctrl+Shift+Alt (Windows or UNIX)/ Shift+Alt+Cmd(macOS) 多个矩阵选择
 ctr + shift + c  复制文件路径
 Ctrl+Shift+Alt+V 粘贴为纯文本
-ctr + alt + left  返回上一次编辑地方
-ctr + alt + right   返回下一次编辑地方
+ctr + alt + left  返回上一返回下一次编辑地方次编辑地方
+ctr + alt + right   
 ctr + f4 关闭当前文件
 ctr + e  打开最近编辑的文件
 ctr + alt + 左键   多光标编辑多行文件

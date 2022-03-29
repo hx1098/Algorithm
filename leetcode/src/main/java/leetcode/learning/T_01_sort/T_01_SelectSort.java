@@ -48,131 +48,41 @@ public class T_01_SelectSort {
     }
 
     public static void main(String[] args) {
-        /*int[] arr = {10, 8, 4, 9};
-        selectSort(arr);
-        for (int i : arr) {
-            System.out.print(i);
-        }*/
-
-
-        int testTime = 50000;
-        int maxSize = 100;
-        int maxValue = 100;
-        boolean succeed = true;
-        for (int i = 0; i < testTime; i++) {
-            int[] arr1 = generaRandomArray(maxSize, maxValue);
-            int[] arr2 = copyArray(arr1);
-            selectSort(arr1);
-            comparator(arr2);
-            if (!isEqual(arr1, arr2)) {
-                succeed = false;
-                printArray(arr1);
-                printArray(arr2);
-                break;
-            }
-        }
-        System.out.println(succeed ? "Nice" : "effor");
-
-       /* int[] arr = generaRandomArray(maxSize, maxValue);
-        printArray(arr);
-        selectSort(arr);
-        printArray(arr);*/
-
-    }
-
-    private static void printArray(int[] arr2) {
-        if(arr2 == null) return;
-        for (int i = 0; i < arr2.length; i++) {
-            System.out.println(arr2[i]);
-        }
-        System.out.println();
-    }
-
-    public static boolean isEqual(int[] arr1, int[] arr2) {
-        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
-            return false;
-        }
-        if (arr1 == null && arr2 == null) {
-            return true;
-        }
-        if (arr1.length != arr2.length) {
-            return false;
-        }
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] != arr2[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private static void comparator(int[] arr2) {
-        Arrays.sort(arr2);
-    }
-
-    private static int[] copyArray(int[] arr1) {
-        if(arr1 == null) return null;
-        int[] arrResult = new int[arr1.length];
-        for (int i = 0; i < arr1.length; i++) {
-            arrResult[i] = arr1[i];
-        }
-        return arrResult;
-    }
-
-    @Test
-    public void test1(){
-        for (int i = 0; i <100; i++) {
-            //System.out.println(Math.random());
-            double random = Math.random();
-            int temp = (int) ((100+1) * random);
-            if (temp == 100) {
-                System.out.println(random);
-            }
-            System.out.println(temp);
-        }
-
-    }
-
-
-
-    private static int[] generaRandomArray(int maxSize, int maxValue) {
-        int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
-        for (int i = 0; i < arr.length; i++) {
-            // [-? , +?], 使其有正数有负数
-            arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
-            //System.out.println(arr[i]);
-        }
-        return arr;
-    }
-    @Test
-    public void test12(){
-        generaRandomArray(1000, 1000);
-    }
-
-
-    @Test
-    public void test13(){
-        int[] arr = {1, 4, 2, 1, 3};
+        int[] arr = {10, 8, 4, 9};
         selectSort2(arr);
         Arrays.stream(arr).forEach(System.out::print);
-
     }
-
-    //0 ~ N-1
-    //1 ~ N-1
-    //2 ~ N-1
-    //第一次过来的时候,
     public static void selectSort2(int[] arr) {
-        for (int i = 0; i < arr.length - 1;i++) {
-            Arrays.stream(arr).forEach(System.out::print);
-            System.out.println();
-            int min = i;//第一次循环找第一个位置的最小值, 第二次循环找第二个位置的最小值,
-            for (int j = i + 1; j < arr.length; j++) {
-                min = arr[j] < arr[min] ? j : min;
+        if (arr == null || arr.length < 2) return;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;//设置当前循环的最小值作为基准值
+            for (int j = i+1; j < arr.length; j++) {
+                //j = i+1   是因为 i = 0 时候, j = 1, j =2 , j = 3 进行最小值的挑选 比较三次
+                //j = i+1   是因为 i = 1 时候, j = 2, j =3 ,进行最小值的挑选, 比较两次
+                //j = i+1   是因为 i = 2 时候, j = 3, 进行最小值的挑选, 比较1次
+                min = arr[j] > arr[min] ? min : j;
             }
-            swap(arr,min,i);
-
+            swap(arr,i,min);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
