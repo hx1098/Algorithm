@@ -47,26 +47,27 @@ public class T_03_InsertSort {
         int[] arr = { 4, 9,3,2};
         //insertSort(arr);
         InsertSort2(arr);
-        for (int i : arr) {
+       /* for (int i : arr) {
             System.out.print(i);
-        }
+        }*/
     }
 
-
-    public static void comparator(int[] arr) {
-        Arrays.sort(arr);
-    }
-
-
-    //外层控制循环几次，
-    // 内层控制 0~0 有序， 0~1 有序， 0~2有序
+    //0~0 保证有序,
+    //0~1 保证有序,
+    //0~2 保证有序
+    //0~n-1 保证有序
     public static void InsertSort2(int[] arr) {
+        //1.外层循环控制 一个数一个数向上面叠加,
+        //2.内层循环控制 找到合适的位置,
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i+1; j > 0 && arr[j-1] > arr[j]; j--) {
-                swap(arr, j, j - 1);
+            for (int j = i; j >= 0 && arr[j] > arr[j+1]; j--) {
+                swap(arr, j, j + 1);
             }
         }
     }
+
+
+
 
 
 
