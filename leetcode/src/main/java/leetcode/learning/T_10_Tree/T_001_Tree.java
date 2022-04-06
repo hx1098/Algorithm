@@ -1,4 +1,4 @@
-package leetcode.leetcode;
+package leetcode.learning.T_10_Tree;
 
 /**
  * @author hx
@@ -9,7 +9,7 @@ package leetcode.leetcode;
  * @editTime 2022/4/6 6:47
  * @editDescription 二叉树的基本逻辑结构,
  */
-public class T_005_Tree {
+public class T_001_Tree {
 
     //二叉树的逻辑结构
     public class Node {
