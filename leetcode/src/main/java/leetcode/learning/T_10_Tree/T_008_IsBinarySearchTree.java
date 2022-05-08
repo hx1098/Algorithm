@@ -17,7 +17,7 @@ import cn.hutool.core.util.ReUtil;
  */
 public class T_008_IsBinarySearchTree {
 
-    public static class  TreeNode{
+    public static class TreeNode{
         private int val;
         TreeNode left;
         TreeNode right;
