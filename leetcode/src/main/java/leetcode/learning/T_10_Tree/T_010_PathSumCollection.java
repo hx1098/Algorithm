@@ -27,7 +27,7 @@ public class T_010_PathSumCollection {
         }
     }
 
-    public List<List<Integer>> getCollections(int sum, TreeNode root) {
+    public static List<List<Integer>> getCollections(int sum, TreeNode root) {
         if (root == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class T_010_PathSumCollection {
      * @param currentPath 当前路径
      * @param ans 当前要返回的路径和 collections
      */
-    private void process(TreeNode root,int sum, int preSum, List<Integer> currentPath, List<List<Integer>> ans) {
+    private static void process(TreeNode root,int sum, int preSum, List<Integer> currentPath, List<List<Integer>> ans) {
         //1.如果左节点和右节点是叶子节点,并且sum = pre + sum
         if (root.left == null && root.right == null) {
             if (sum == (preSum + root.val)) {
