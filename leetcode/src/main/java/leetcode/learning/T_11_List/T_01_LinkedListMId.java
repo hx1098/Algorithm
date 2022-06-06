@@ -1,8 +1,11 @@
 package leetcode.learning.T_11_List;
 
+import cn.hutool.core.util.ReUtil;
 import lombok.val;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * @author hx
@@ -38,11 +41,50 @@ public class T_01_LinkedListMId {
         Node fast = val;
         Node slow = val;
         while (fast.next != null && fast.next.next != null) {
-            System.out.println(fast.next.next.val  + " : " + slow.next.val);
             fast = fast.next.next;
             slow = slow.next;
         }
         return slow;
+    }
+
+    /**奇数个返回中点, 偶数个返回下中点*/
+    public static Node midOrDownMOdNode(Node val) {
+        if (val == null || val.next == null || val.next.next == null) {
+            return val;
+        }
+        Node fast = val.next;
+        Node slow = val.next;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return fast;
+    }
+
+    /**奇数个返回中点, 偶数个返回上中点*/
+    public static Node right1(Node head) {
+        if (head == null) {
+            return null;
+        }
+        ArrayList<Node> list = new ArrayList<>();
+        Node cur = head;
+        while (cur != null) {
+            list.add(cur);
+            cur = cur.next;
+        }
+        return list.get((list.size() - 1) / 2);
+    }
+    public static Node right2(Node head) {
+        if (head == null) {
+            return null;
+        }
+        ArrayList<Node> list = new ArrayList<>();
+        Node cur = head;
+        while (cur != null) {
+            list.add(cur);
+            cur = cur.next;
+        }
+        return list.get((list.size()) / 2);
     }
 
 
@@ -56,10 +98,18 @@ public class T_01_LinkedListMId {
         test.next.next.next.next.next = new Node(5);
         test.next.next.next.next.next.next = new Node(6);
         test.next.next.next.next.next.next.next = new Node(7);
-        //test.next.next.next.next.next.next.next.next = new Node(8);
+        test.next.next.next.next.next.next.next.next = new Node(8);
 
+        System.out.println("============奇数中点, 偶数上中点==============");
         Node node = midOrUpMidNode(test);
         System.out.println(node.val);
+        Node right1 = right1(test);
+        System.out.println(right1.val);
+
+        System.out.println("============奇数中点, 偶数上中点==============");
+
+        Node right2 = right2(test);
+        System.out.println(right2.val);
     }
 
 
