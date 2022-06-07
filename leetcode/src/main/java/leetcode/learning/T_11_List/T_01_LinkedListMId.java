@@ -57,8 +57,33 @@ public class T_01_LinkedListMId {
         while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
+            System.out.println("fast:" + fast.val + "  :: slow: " + slow.val);
         }
-        return fast;
+        return slow;
+
+        //fast:3  :: slow: 2
+        //fast:5  :: slow: 3
+        //fast:7  :: slow: 4
+    }
+
+    /**奇数个返回中点的上一个位置, 偶数个返回上中点*/
+    public static Node midOrUpMidlePreNode(Node head) {
+        if (head == null || head.next == null || head.next.next == null) {
+            return null;
+        }
+        Node fast = head.next.next;
+        Node slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    public static Node midOrDownMidPreNode(Node head) {
+
+        return null;
+
     }
 
     /**奇数个返回中点, 偶数个返回上中点*/
@@ -88,6 +113,7 @@ public class T_01_LinkedListMId {
     }
 
 
+
     public static void main(String[] args) {
         Node test = null;
         test = new Node(0);
@@ -106,10 +132,20 @@ public class T_01_LinkedListMId {
         Node right1 = right1(test);
         System.out.println(right1.val);
 
-        System.out.println("============奇数中点, 偶数上中点==============");
-
+        System.out.println("============奇数中点, 偶数下中点==============");
+        Node node1 = midOrDownMOdNode(test);
+        System.out.println(node1.val);
         Node right2 = right2(test);
         System.out.println(right2.val);
+
+        System.out.println("============奇数中点位置的上一个位置, 偶数上中点位置的上一个位置==============");
+        Node node2 = midOrUpMidlePreNode(test);
+        System.out.println(node2.val);
+
+        System.out.println("'================奇数中点位置的下一个位置, 偶数个中点位置的下一个位置(下中点)=================");
+        Node node4 = midOrDownMidPreNode(test);
+        System.out.println(node4.val);
+
     }
 
 
