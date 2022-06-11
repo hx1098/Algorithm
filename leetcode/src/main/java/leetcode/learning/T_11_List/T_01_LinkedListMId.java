@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @editTime 2022/6/3 6:41
  * @editDescription  快慢指针, 根据快慢指针找中点位置
  *
- * 1.给定一个奇数个链表, 返回一个中点位置, 偶数个返回上中点
+ * 1.给定一个奇数个链表, 返回一个中点位置, 偶数个返回上中点2
  * 2.给定一个奇数个链表, 返回一个中点位置, 偶数个返回下中点
  * 2.给定一个奇数个链表, 奇数返回一个中点位置的前一个点, 偶数个返回上中点的前一个中点
  * 2.奇数个链表, 返回一个中点前一个, 偶数个 :返回下中点的前一个
@@ -68,7 +68,7 @@ public class T_01_LinkedListMId {
 
     /**奇数个返回中点的上一个位置, 偶数个返回上中点*/
     public static Node midOrUpMidlePreNode(Node head) {
-        if (head == null || head.next == null || head.next.next == null) {
+       /* if (head == null || head.next == null || head.next.next == null) {
             return null;
         }
         Node fast = head.next.next;
@@ -77,41 +77,35 @@ public class T_01_LinkedListMId {
             fast = fast.next.next;
             slow = slow.next;
         }
+        return slow;*/
+        if (head == null || head.next == null || head.next.next == null) {
+            return null;
+        }
+        Node slow = head;
+        Node fast = head.next.next;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
         return slow;
     }
 
+    /**奇数中点下一个位置, 偶数中点下一个位置(下中点)*/
     public static Node midOrDownMidPreNode(Node head) {
-
-        return null;
-
-    }
-
-    /**奇数个返回中点, 偶数个返回上中点*/
-    public static Node right1(Node head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return null;
         }
-        ArrayList<Node> list = new ArrayList<>();
-        Node cur = head;
-        while (cur != null) {
-            list.add(cur);
-            cur = cur.next;
+        if (head.next.next == null) {
+            return head;
         }
-        return list.get((list.size() - 1) / 2);
+        Node slow = head;
+        Node fast = head.next;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
-    public static Node right2(Node head) {
-        if (head == null) {
-            return null;
-        }
-        ArrayList<Node> list = new ArrayList<>();
-        Node cur = head;
-        while (cur != null) {
-            list.add(cur);
-            cur = cur.next;
-        }
-        return list.get((list.size()) / 2);
-    }
-
 
 
     public static void main(String[] args) {
@@ -124,27 +118,23 @@ public class T_01_LinkedListMId {
         test.next.next.next.next.next = new Node(5);
         test.next.next.next.next.next.next = new Node(6);
         test.next.next.next.next.next.next.next = new Node(7);
-        test.next.next.next.next.next.next.next.next = new Node(8);
+        //test.next.next.next.next.next.next.next.next = new Node(8);
 
-        System.out.println("============奇数中点, 偶数上中点==============");
+        System.out.println("=============奇数中点位置, 偶数上中点=======================");
         Node node = midOrUpMidNode(test);
         System.out.println(node.val);
-        Node right1 = right1(test);
-        System.out.println(right1.val);
 
-        System.out.println("============奇数中点, 偶数下中点==============");
+        System.out.println("=============奇数中点位置, 偶数下中点=========================");
         Node node1 = midOrDownMOdNode(test);
         System.out.println(node1.val);
-        Node right2 = right2(test);
-        System.out.println(right2.val);
 
-        System.out.println("============奇数中点位置的上一个位置, 偶数上中点位置的上一个位置==============");
-        Node node2 = midOrUpMidlePreNode(test);
-        System.out.println(node2.val);
-
-        System.out.println("'================奇数中点位置的下一个位置, 偶数个中点位置的下一个位置(下中点)=================");
+        System.out.println("==============奇数中点位置前一个位置, 偶数上中点的上一个位置========================");
         Node node4 = midOrDownMidPreNode(test);
         System.out.println(node4.val);
+
+        System.out.println("==============奇数中点位置前一个位置, 偶数上中点位置========================");
+        Node node2 = midOrUpMidlePreNode(test);
+        System.out.println(node2.val);
 
     }
 
