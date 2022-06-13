@@ -24,6 +24,9 @@ Ctrl + Shift + J	自动将下一行合并到当前行末尾 （必备）
 alt + shift + U  驼峰格式化代码(需要配合插件)
 ctr + home 跳转到开始位置
 ctr + end 跳转到结束位置
+ctrl + shift + = 折叠所有的方法
+ctrl + shift + - 不折叠折叠所有的方法
+
 
 ```
 
