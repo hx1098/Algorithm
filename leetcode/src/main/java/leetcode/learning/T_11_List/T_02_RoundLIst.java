@@ -1,5 +1,7 @@
 package leetcode.learning.T_11_List;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -18,16 +20,16 @@ import java.util.Stack;
 public class T_02_RoundLIst {
 
     public static class Node {
-        private Node val;
+        private int val;
         private Node next;
 
-        public Node(Node val) {
+        public Node(int val) {
             this.val = val;
         }
     }
 
     //第一种, 借助容器来实现判断是否是回文, stack
-    public Boolean isRoundList(Node head) {
+    public static Boolean isRoundList(Node head) {
         Node test = head;
         Stack<Node> stack = new Stack<>();
         while (test == null) {
@@ -41,6 +43,39 @@ public class T_02_RoundLIst {
             head = head.next;
         }
         return true;
+    }
+
+
+    //不借助容器来实现 判断一个list是否是回文结构
+    //思路: 将这个链表给对折起来, 一个左指针往右走, 一个右指针往左走, 直到其中一个变为空
+    public static Boolean isRoundList2(Node head) {
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Node node = new Node(1);
+        node.next = new Node(2);
+        node.next.next = new Node(3);
+        node.next.next.next = new Node(4);
+        node.next.next.next.next = new Node(4);
+        node.next.next.next.next.next = new Node(3);
+        node.next.next.next.next.next.next = new Node(2);
+        node.next.next.next.next.next.next.next = new Node(1);
+
+        Node head = new Node(1);
+        node.next = new Node(2);
+        node.next.next = new Node(3);
+        node.next.next.next = new Node(4);
+        node.next.next.next.next = new Node(3);
+        node.next.next.next.next.next = new Node(2);
+        node.next.next.next.next.next.next = new Node(1);
+
+
+        Boolean roundList = isRoundList(node);
+        System.out.println(roundList);
+        Boolean roundList1 = isRoundList(head);
+        System.out.println(roundList1);
     }
 
 
