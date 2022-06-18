@@ -38,7 +38,7 @@ public class T_02_RoundLIst {
         }
         System.out.println(stack);
         while (head != null) {
-            System.out.println(head.val + "::" + stack.pop().val );
+            System.out.println(head.val + "::" + stack.pop().val);
             if (head.val != stack.pop().val) {
                 return false;
             }
