@@ -32,12 +32,14 @@ public class T_02_RoundLIst {
     public static Boolean isRoundList(Node head) {
         Node test = head;
         Stack<Node> stack = new Stack<>();
-        while (test == null) {
+        while (test != null) {
             stack.push(test);
             test = test.next;
         }
-        while (head == null) {
-            if (head.val != stack.peek().val) {
+        System.out.println(stack);
+        while (head != null) {
+            System.out.println(head.val + "::" + stack.pop().val );
+            if (head.val != stack.pop().val) {
                 return false;
             }
             head = head.next;
@@ -47,8 +49,23 @@ public class T_02_RoundLIst {
 
 
     //不借助容器来实现 判断一个list是否是回文结构
-    //思路: 将这个链表给对折起来, 一个左指针往右走, 一个右指针往左走, 直到其中一个变为空
+    //思路: 1.找出中点, 2. 将中点后的指针反转,指向中点位置, 3.判断是否是回文, 4.将中点后的位置指针反转, 恢复到原来的状态
     public static Boolean isRoundList2(Node head) {
+        //1.找出中点
+        if (head == null || head.next == null || head.next.next == null) {
+            return false;
+        }
+        Node slow = head.next;
+        Node fast = head.next.next;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println(slow.val);
+        //2.将中点后的指针反转
+
+
+
 
         return true;
     }
@@ -58,24 +75,31 @@ public class T_02_RoundLIst {
         node.next = new Node(2);
         node.next.next = new Node(3);
         node.next.next.next = new Node(4);
-        node.next.next.next.next = new Node(4);
+        node.next.next.next.next = new Node(5);
         node.next.next.next.next.next = new Node(3);
         node.next.next.next.next.next.next = new Node(2);
         node.next.next.next.next.next.next.next = new Node(1);
 
         Node head = new Node(1);
-        node.next = new Node(2);
-        node.next.next = new Node(3);
-        node.next.next.next = new Node(4);
-        node.next.next.next.next = new Node(3);
-        node.next.next.next.next.next = new Node(2);
-        node.next.next.next.next.next.next = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = new Node(3);
+        head.next.next.next.next.next = new Node(2);
+        head.next.next.next.next.next.next = new Node(1);
 
 
         Boolean roundList = isRoundList(node);
         System.out.println(roundList);
         Boolean roundList1 = isRoundList(head);
         System.out.println(roundList1);
+        System.out.println("============================");
+
+        Boolean roundList2 = isRoundList2(node);
+        System.out.println(roundList2);
+        Boolean roundList3 = isRoundList2(head);
+        System.out.println(roundList3);
+
     }
 
 
