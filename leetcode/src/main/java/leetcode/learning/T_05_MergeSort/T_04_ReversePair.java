@@ -1,6 +1,5 @@
 package leetcode.learning.T_05_MergeSort;
 
-import com.sun.org.apache.regexp.internal.REUtil;
 
 /**
  * @author hx

@@ -1,7 +1,6 @@
 package T05_DesignMode.T17_ChainOfResponsibility.version2;
 
 
-import sun.java2d.opengl.WGLSurfaceData;
 
 /**
  * @author hx
