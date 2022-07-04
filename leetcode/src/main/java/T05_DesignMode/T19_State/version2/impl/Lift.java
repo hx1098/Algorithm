@@ -1,7 +1,6 @@
 package T05_DesignMode.T19_State.version2.impl;
 
 import T05_DesignMode.T19_State.version2.ILift;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.SchemaTop;
 
 /**
  * @author hx

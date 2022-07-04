@@ -26,6 +26,11 @@ public class T_02_RoundLIst {
         public Node(int val) {
             this.val = val;
         }
+
+
+
+
+
     }
 
     //第一种, 借助容器来实现判断是否是回文, stack
@@ -55,8 +60,8 @@ public class T_02_RoundLIst {
         if (head == null || head.next == null || head.next.next == null) {
             return false;
         }
-        Node slow = head.next;
-        Node fast = head.next.next;
+        Node slow = head;
+        Node fast = head;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -64,7 +69,15 @@ public class T_02_RoundLIst {
         System.out.println(slow.val);
         //2.将中点后的指针反转
 
-
+        fast = slow.next;//此时slow是中点,保存中点的下一个值
+        slow.next = null;//mid.next -> null
+        Node n3 = null;
+        while (fast != null) {
+            n3 = fast.next;//n3 save next value
+            fast.next = slow; //
+            slow = fast;
+            fast = n3;
+        }
 
 
         return true;
@@ -99,6 +112,7 @@ public class T_02_RoundLIst {
         System.out.println(roundList2);
         Boolean roundList3 = isRoundList2(head);
         System.out.println(roundList3);
+
 
     }
 
