@@ -1,5 +1,8 @@
 package leetcode.learning.T_11_List;
 
+import T_08_Mysql.test;
+import leetcode.learning.T_09_PrefixTree.T_01_PrefixTree;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -41,9 +44,7 @@ public class T_02_RoundLIst {
             stack.push(test);
             test = test.next;
         }
-        System.out.println(stack);
         while (head != null) {
-            System.out.println(head.val + "::" + stack.pop().val);
             if (head.val != stack.pop().val) {
                 return false;
             }
@@ -78,9 +79,28 @@ public class T_02_RoundLIst {
             slow = fast;
             fast = n3;
         }
-
-
-        return true;
+        n3 = slow;
+        fast = head;
+        //开始进行比较， 是否是回文结构
+        boolean res = true;
+        while (slow != null && fast != null) {
+            if (slow.val != fast.val) {
+                res = false;
+                break;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow = n3.next;
+        n3.next = null;
+        //开始将原来的结构回复原样
+        while (slow != null) {
+            fast = slow.next;
+            slow.next = n3;
+            n3 = slow;
+            slow = fast;
+        }
+        return res;
     }
 
     public static void main(String[] args) {

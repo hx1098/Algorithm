@@ -1,4 +1,7 @@
 ```text
+macos常用快捷键：
+command + ~     切换同一个应用的不同页面
+
 常用快捷键： 
 ctr + o 实现类
 ctr + i  实现累
