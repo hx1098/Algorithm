@@ -1,7 +1,5 @@
 package leetcode.learning.T_01_sort;
 
-import org.junit.Test;
-
 import java.util.Arrays;
 
 /**
@@ -25,19 +23,21 @@ public class T_01_SelectSort {
     // ....
     //外层控制寻找几次最小值的次数
     //内层控制 本次寻找最小值比较的次数
-    /**选则排序*/
+
+    /**
+     * 选则排序
+     */
     public static void selectSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
-        for (int i = 0; i < arr.length-1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j= i+1; j < arr.length; j++) {
+                min = arr[min] > arr[j] ? j : min;
             }
-            swap(arr,i, minIndex);
+            swap(arr, min, i);
         }
-
     }
 
     /**两个数进行交换*/
@@ -49,7 +49,7 @@ public class T_01_SelectSort {
 
     public static void main(String[] args) {
         int[] arr = {10, 8, 4, 9};
-        selectSort2(arr);
+        selectSort(arr);
         Arrays.stream(arr).forEach(System.out::print);
     }
     public static void selectSort2(int[] arr) {

@@ -3,6 +3,7 @@ macos常用快捷键：
 command + ~     切换同一个应用的不同页面
    
 常用快捷键： 
+
 ctr + o 实现类
 ctr + i  实现累
 ctr + command + a 截屏
@@ -29,6 +30,7 @@ Option + Delete 删除到单词的开头
 Option + Fn + Delete 删除到单词的结尾
 Option + ↑ 上箭头  递进选中
 option+shift+ 上方向键 /下方向键 移动一行
+option + command + 左右方向键 返回上一个编辑的地方 
 
 Command + E 最近修改的文件 
 Command + 7 左下角显示类结构
