@@ -60,9 +60,7 @@ public class T_03_InsertSort {
         //1.外层循环控制 一个数一个数向上面叠加,
         //2.内层循环控制 找到合适的位置,
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i; j >= 0 && arr[j] > arr[j+1]; j--) {
-                swap(arr, j, j + 1);
-            }
+
         }
     }
 

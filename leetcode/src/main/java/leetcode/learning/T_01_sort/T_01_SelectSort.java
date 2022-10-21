@@ -31,10 +31,12 @@ public class T_01_SelectSort {
         if (arr == null || arr.length < 2) {
             return;
         }
+        //外层控制找几次最小值
         for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
-            for (int j= i+1; j < arr.length; j++) {
-                min = arr[min] > arr[j] ? j : min;
+            //内层控制比较几次
+            for (int j = i + 1; j < arr.length; j++) {
+                min = arr[min] < arr[j] ? min : j;
             }
             swap(arr, min, i);
         }

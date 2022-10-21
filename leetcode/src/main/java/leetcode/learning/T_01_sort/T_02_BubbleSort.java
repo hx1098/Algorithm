@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @description
  * @editUser hx
  * @editTime 2021/10/25 22:18
- * @editDescription 冒泡排序 在于找到最大值
+ * @editDescription 冒泡排序 在于找到最大值,放到最后面
  */
 public class T_02_BubbleSort {
 
@@ -50,8 +50,10 @@ public class T_02_BubbleSort {
     }*/
 
     public static void bubboSort2(int[] arr) {
-        if(arr == null || arr.length < 2) return;
-        for (int i = 0; i < arr.length-1; i++) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
@@ -62,8 +64,8 @@ public class T_02_BubbleSort {
     @Test
     public void test1(){
         int[] arr = {1, 4, 2, 1, 3};
-        //bubboSort2(arr);
-        bubbleSort3(arr);
+        bubboSort2(arr);
+//        bubbleSort3(arr);
         Arrays.stream(arr).forEach(System.out::print);
     }
 
